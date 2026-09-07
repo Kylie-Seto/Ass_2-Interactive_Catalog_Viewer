@@ -1,0 +1,22 @@
+title,type,author,year,genre,rating,description
+Clean Code,book,Robert C. Martin,2008,Software Engineering,4.7,A handbook of agile software craftsmanship.
+The Pragmatic Programmer,book,Andrew Hunt,1999,Software Engineering,4.8,Classic advice for pragmatic software development.
+Design Patterns,book,Erich Gamma,1994,Software Engineering,4.5,Foundational patterns for object oriented design.
+Introduction to Algorithms,book,Thomas H. Cormen,2009,Algorithms,4.6,A comprehensive textbook on algorithms and data structures.
+Structure and Interpretation of Computer Programs,book,Harold Abelson,1996,Computer Science,4.4,A classic text on programming principles and abstraction.
+Attention Is All You Need,paper,Ashish Vaswani,2017,Machine Learning,4.5,Introduced the Transformer architecture for sequence modeling.
+The Mythical Man Month,book,Fred Brooks,1975,Software Engineering,4.2,Essays on software project management and productivity.
+Inception,movie,Christopher Nolan,2010,Sci-Fi,4.6,A science fiction film about entering and manipulating dreams.
+The Social Network,movie,David Fincher,2010,Drama,4.1,A dramatized account of the founding of Facebook.
+The Martian,movie,Ridley Scott,2015,Sci-Fi,4.3,An astronaut must survive alone on Mars.
+Deep Learning,paper,Ian Goodfellow,2016,Machine Learning,4.4,A comprehensive overview of deep learning techniques.
+Refactoring,book,Martin Fowler,1999,Software Engineering,4.6,Improving the design of existing code without changing behavior.
+Teaching to Change Lives,book,Howard Hendricks,2003,Education,4.5,A guide to impactful teaching and mentorship.
+2084 and the AI Revolution, book,John Lennox, 2024, Theology,4.0,Explores the implications of artificial intelligence on society and faith.
+Escher Bach,book,Douglas Hofstadter,1979,Computer Science,4.3,An exploration of consciousness through logic art and music.
+Rocket League,game,Epic Games,2015,Sports,4.2,A high-octane blend of soccer and vehicular acrobatics.
+The Legend of Zelda: Breath of the Wild,game,Nintendo,2017,Adventure,4.9,An open-world adventure game set in the kingdom of Hyrule.
+Mario Kart 8 Deluxe,game,Nintendo,2017,Racing,4.5,A fast-paced racing game featuring Mario universe characters.
+Tomb Raider,game,Crystal Dynamics,2013,Action,4.1,A reboot of the classic action-adventure series following Lara Croft's origins.
+Half-Life 2,game,Valve,2004,Shooter,4.8,A groundbreaking first-person shooter with a strong narrative focus.
+League of Legends,game,Riot Games,2009,MOBA,4.0,A competitive online multiplayer battle arena game.

@@ -1,0 +1,20 @@
+.cyan {
+  color: darkcyan;
+}
+
+.catalog-card {
+  border: 1px solid #dee2e6;
+  border-radius: 0.5rem;
+  transition:
+    box-shadow 0.2s ease,
+    transform 0.15s ease;
+}
+
+.catalog-card:hover {
+  box-shadow: 0 4px 16px darkcyan;
+  transform: translateY(-2px);
+}
+
+#itemModal .modal-content {
+  box-shadow: 0 4px 16px darkcyan;
+}

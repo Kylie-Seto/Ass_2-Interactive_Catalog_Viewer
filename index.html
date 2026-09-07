@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interactive Catalog Viewer</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link href="styles.css" rel="stylesheet" />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+    <script src="script.js" defer></script>
+  </head>
+
+  <body class="d-flex flex-column min-vh-100">
+    <!--HEADER-->
+    <header class="bg-light border-bottom">
+      <section
+        class="mx-5 py-3 d-flex justify-content-between flex-column flex-sm-row"
+      >
+        <div>
+          <h2><span class="cyan">Catalog </span>Viewer</h2>
+          <p class="text-muted mb-2">Assignment 2</p>
+        </div>
+        <div>
+          <span class="badge text-bg-secondary">JavaScript</span>
+          <span class="badge text-bg-secondary">CSV</span>
+          <span class="badge text-bg-secondary">Bootstrap</span>
+        </div>
+      </section>
+    </header>
+
+    <!--Upload CSV, Filter, Sort-->
+    <form class="card mx-5 my-4">
+      <div class="card-body pt-0">
+        <div class="row">
+          <div class="col-lg-6 col-md-12 col-sm-12 mt-3">
+            <!--FILE UPLOAD-->
+            <label for="fileUpload" class="form-label"
+              ><strong>Upload CSV</strong></label
+            >
+            <input
+              type="file"
+              id="fileUpload"
+              name="fileUpload"
+              class="form-control"
+              accept=".csv"
+            />
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 mt-3">
+            <!--TYPE FILTER-->
+            <label for="typeFilter" class="form-label"
+              ><strong>Type</strong></label
+            >
+            <select class="form-select" id="typeFilter" disabled>
+              <!-- Start as gray (disabled) and turn white on CSV upload-->
+              <option selected>All</option>
+              <!--Filters must contain only the categories in the uploaded file. OPTIONS MUST BE DYNAMICALLY PULLED FROM THE FILE-->
+            </select>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 mt-3">
+            <!--SORT FILTER-->
+            <label for="sortFilter" class="form-label"
+              ><strong>Sort</strong></label
+            >
+            <select class="form-select" id="sortFilter" disabled>
+              <!-- Start as gray (disabled) and turn white on CSV upload-->
+              <option selected>None</option>
+              <option>Year (new &#8594; old)</option>
+              <option>Year (old &#8594; new)</option>
+              <option>Rating (high &#8594; low)</option>
+              <option>Rating (low &#8594; high)</option>
+              <!--Filters must contain only the categories in the uploaded file. OPTIONS MUST BE DYNAMICALLY PULLED FROM THE FILE-->
+            </select>
+          </div>
+        </div>
+        <div class="d-flex justify-content-end">
+          <small id="formMsg" class="text-muted pt-3"
+            >Upload a CSV to begin.</small
+          >
+        </div>
+      </div>
+    </form>
+
+    <!--RESULTS SECTION-->
+    <main class="mx-5">
+      <section id="resultsHeader" class="d-flex justify-content-between">
+        <h3 class="cyan">Results</h3>
+        <p class="text-muted"><span id="resultsCount">0</span> items</p>
+      </section>
+      <!--Flexbox for centering "no matching items"-->
+      <section
+        id="noResults"
+        class="d-flex flex-column justify-content-center align-items-center my-5"
+      >
+        <h1>No matching items</h1>
+        <p class="text-muted">Try adjusting your filter, or sort.</p>
+      </section>
+      <!--Bootstrap Grid RESULTS updated via JS-->
+      <div class="container-fluid px-0">
+        <div id="cardRow" class="row g-3"></div>
+      </div>
+    </main>
+    <!--Item Modal onClick of card-->
+    <div
+      class="modal fade"
+      id="itemModal"
+      tabindex="-1"
+      aria-labelledby="modalTitle"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalTitle">Title</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <p class="mb-1 text-muted"><span id="modalType"></span></p>
+            <p class="mb-1 text-muted"><span id="modalAuthor"></span></p>
+            <p class="mb-1 text-muted"><span id="modalGenre"></span></p>
+            <p class="mb-1 text-muted"><span id="modalYear"></span></p>
+            <p class="mb-3 text-muted"><span id="modalRating"></span></p>
+            <p id="modalDescription" class="mt-2"></p>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--FOOTER-->
+    <footer class="bg-light border-top mt-auto pb-2">
+      <section class="mx-5 text-muted">
+        <p class="my-2">
+          CMPT 272 Spring 2026 - Assignment 2: Interactive Catalog Viewer
+          (JavaScript + CSV)
+        </p>
+        <p>
+          <em
+            >Created with: HTML, CSS Bootstrap for basic styling and layout,
+            custom CSS for transitions, and Vanila JS</em
+          >
+        </p>
+        <small>&copy;2026 Kylie Seto. All rights reserved.</small>
+      </section>
+    </footer>
+  </body>
+</html>
